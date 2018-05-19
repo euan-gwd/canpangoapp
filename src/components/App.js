@@ -2,7 +2,16 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    fetch("/categories/")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(function(e) {
+        console.log(e);
+      });
+  };
 
   render() {
     return (
