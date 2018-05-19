@@ -18,16 +18,21 @@ export default class CategoryMenu extends Component {
   render() {
     const { menuItems } = this.state;
     return (
-      <nav>
-        <ol>
+      <nav className="navbar" aria-label="main navigation">
+        <div className="navbar-menu">
+          <div className="navbar-item">Categories:</div>
           {menuItems.map((menuItem, index) => (
-            <li key={index} onClick={this.handleItemClick}>
+            <a
+              className="navbar-item"
+              key={index}
+              onClick={this.handleItemClick}
+            >
               {menuItem.name}
-            </li>
+            </a>
           ))}
-        </ol>
+        </div>
 
-        <div>
+        <div className="navbar-item is-pulled-right">
           <input type="search" placeholder="Search..." />
         </div>
       </nav>
