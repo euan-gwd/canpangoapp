@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import "./App.css";
+import CategoryMenu from "./CategoryMenu";
+import Beers from "./Beers";
+import logo from "./logo.png";
 
 class App extends Component {
-  componentDidMount = () => {
-    fetch("/categories/")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(function(e) {
-        console.log(e);
-      });
-  };
-
   render() {
     return (
-      <div className="App">
+      <div>
         <header className="App-header">
-          <h1 className="App-title">Welcome to Canpango Beer App</h1>
+          <img src={logo} alt="logo" />
+          <h1>BreweryDB</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <CategoryMenu />
+        <main>
+          <Beers />
+        </main>
       </div>
     );
   }
