@@ -7,10 +7,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className="hero is-dark is-bold has-text-centered">
-          <div className="hero-body">
+        <header>
+          <div>
             <img src={logo} alt="logo" />
-            <h1 className="title">BreweryDB</h1>
+            <h1>BreweryDB</h1>
           </div>
         </header>
         <CategoryMenu />
