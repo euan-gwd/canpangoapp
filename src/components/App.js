@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import CategoryMenu from "./CategoryMenu";
-import Beers from "./Beers";
+// import Beers from "./Beers";
 import logo from "./logo.png";
 
 class App extends Component {
@@ -13,9 +13,7 @@ class App extends Component {
           <h1>BreweryDB</h1>
         </header>
         <CategoryMenu />
-        <main>
-          <Beers />
-        </main>
+        <main>{/* <Beers /> */}</main>
       </div>
     );
   }
