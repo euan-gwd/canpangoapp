@@ -1,11 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
+import Beer from "./Beer.js";
 
-const Beers = () => {
-  return (
-    <div>
-      <p>Beer Details</p>
-    </div>
-  );
-};
+export default class Beers extends Component {
+  state = { beers: [] };
 
-export default Beers;
+  componentDidMount = () => {
+    fetch("/beers/")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ beers: data });
+      })
+      .catch(function(e) {
+        console.log(e);
+      });
+  };
+  render() {
+    const { beers } = this.state;
+    return (
+      <ul>{beers.map((beer, index) => <Beer key={index} detail={beer} />)}</ul>
+    );
+  }
+}
