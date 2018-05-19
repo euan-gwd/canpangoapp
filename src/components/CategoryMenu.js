@@ -13,19 +13,19 @@ export default class CategoryMenu extends Component {
       });
   };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  handleItemClick = evt => console.log(evt.target.value);
 
   render() {
     const { menuItems } = this.state;
     return (
       <nav>
-        <ul>
+        <ol>
           {menuItems.map((menuItem, index) => (
-            <li key={index} name={menuItem.name} onClick={this.handleItemClick}>
+            <li key={index} onClick={this.handleItemClick}>
               {menuItem.name}
             </li>
           ))}
-        </ul>
+        </ol>
 
         <div>
           <input type="search" placeholder="Search..." />
