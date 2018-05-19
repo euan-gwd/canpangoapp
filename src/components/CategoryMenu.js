@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Menu, Input, Icon } from "semantic-ui-react";
 
 export default class CategoryMenu extends Component {
   state = { menuItems: [], activeItem: "" };
@@ -18,20 +19,25 @@ export default class CategoryMenu extends Component {
   render() {
     const { menuItems } = this.state;
     return (
-      <nav>
-        <div>
-          <div>Categories:</div>
-          {menuItems.map((menuItem, index) => (
-            <a key={index} onClick={this.handleItemClick}>
-              {menuItem.name}
-            </a>
-          ))}
-        </div>
-
-        <div>
-          <input type="search" placeholder="Search..." />
-        </div>
-      </nav>
+      <Menu as="nav" borderless stackable>
+        <Menu.Item header>Categories:</Menu.Item>
+        {menuItems.map((menuItem, index) => (
+          <Menu.Item
+            key={index}
+            name={menuItem.name}
+            onClick={this.handleItemClick}
+          />
+        ))}
+        <Menu.Menu position="right">
+          <Menu.Item onClick={this.handleItemClick}>
+            <Icon name="plus" />
+            Add New Beer
+          </Menu.Item>
+          <Menu.Item>
+            <Input className="icon" icon="search" placeholder="Search..." />
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
     );
   }
 }

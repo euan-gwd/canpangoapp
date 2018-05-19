@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Segment as="header" basic inverted>
-          <Image src={logo} alt="logo" centered />
+        <Segment as="header" inverted>
+          <Image src={logo} alt="logo" centered inverted />
           <Header as="h1" textAlign="center">
             BreweryDB
           </Header>
