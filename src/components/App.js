@@ -11,7 +11,7 @@ class App extends Component {
         <Segment as="header" basic inverted>
           <Image src={logo} alt="logo" centered />
           <Header as="h1" textAlign="center">
-            <Header.Content>BreweryDB</Header.Content>
+            BreweryDB
           </Header>
         </Segment>
         <CategoryMenu />
