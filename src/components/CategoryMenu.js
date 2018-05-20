@@ -27,7 +27,7 @@ export default class CategoryMenu extends Component {
         <Menu.Item header>Categories:</Menu.Item>
         {menuItems.map((menuItem, index) => (
           <Link to={`/category/${index + 1}`} key={index}>
-            <Menu.Item name={menuItem.name} />
+            <Menu.Item link name={menuItem.name} />
           </Link>
         ))}
         <Menu.Menu position="right">

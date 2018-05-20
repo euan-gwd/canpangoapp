@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import CategoryMenu from "./CategoryMenu";
 import Home from "./Home";
 import BeersList from "./BeersList";
+import Beer from "./Beer.js";
 import AddNewBeer from "./AddNewBeer";
 import Search from "./Search";
 import logo from "./logo.png";
@@ -24,6 +25,7 @@ class App extends Component {
               <CategoryMenu />
               <Route path="/addNewBeer" component={AddNewBeer} />
               <Route path="/category/:id" component={BeersList} />
+              <Route path="/beers/:id" component={Beer} />
               <Route path="/search" component={Search} />
               <Route exact path="/" component={Home} />
             </Fragment>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import BeerDetail from "./BeerDetail.js";
-import { Segment, Button, List } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Segment, List } from "semantic-ui-react";
 
 export default class BeersList extends Component {
   state = { beers: [] };
@@ -30,17 +30,15 @@ export default class BeersList extends Component {
     const { beers } = this.state;
     return (
       <Segment>
-        <List divided verticalAlign="middle">
-          <List.Item>
-            <List.Content floated="right">
-              <Button>Add</Button>
-            </List.Content>
-            <List.Content>Lena</List.Content>
-          </List.Item>
+        <List divided relaxed>
+          {beers.map((beer, index) => (
+            <Link to={`/Beers/${index + 1}`}>
+              <List.Item key={index}>
+                <List.Content>{beer.name}</List.Content>
+              </List.Item>
+            </Link>
+          ))}
         </List>
-        <ul>
-          {beers.map((beer, index) => <BeerDetail key={index} detail={beer} />)}
-        </ul>
       </Segment>
     );
   }
