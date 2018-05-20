@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Segment, Form, Message } from "semantic-ui-react";
 import SearchResult from "./SearchResult";
+import axios from "axios";
 
 class Search extends Component {
   state = {
@@ -10,15 +11,11 @@ class Search extends Component {
   };
 
   handleFetchData = item => {
-    fetch(
-      `https://cors.io/?http://apichallenge.canpango.com/beers/search/?q=${item}`
-    )
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ beers: data });
-      })
-      .catch(function(e) {
-        console.log(e);
+    axios
+      .get(`http://apichallenge.canpango.com/beers/search/?q=${item}`)
+      .then(res => {
+        const beers = res.data;
+        this.setState({ beers });
       });
   };
 

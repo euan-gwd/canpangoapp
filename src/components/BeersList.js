@@ -1,27 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Segment, List } from "semantic-ui-react";
+import axios from "axios";
 
 export default class BeersList extends Component {
   state = { beers: [] };
 
   handleFetch = () => {
-    fetch(`https://cors.io/?http://apichallenge.canpango.com/beers/`)
-      .then(response => response.json())
-      .then(data => {
-        const { id: category } = this.props.match.params;
-        const filteredData = data.filter(item => {
-          if (item.category === category) {
-            return item;
-          } else {
-            return null;
-          }
-        });
-        this.setState({ beers: filteredData });
-      })
-      .catch(function(e) {
-        console.log(e);
+    axios.get(`http://apichallenge.canpango.com/beers/`).then(res => {
+      const data = res.data;
+      const { id: category } = this.props.match.params;
+      const filteredData = data.filter(item => {
+        if (item.category === category) {
+          return item;
+        } else {
+          return null;
+        }
       });
+      this.setState({ beers: filteredData });
+    });
   };
 
   componentDidMount = () => {

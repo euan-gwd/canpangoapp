@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Segment, Form } from "semantic-ui-react";
+import axios from "axios";
 
 class AddNewBeer extends Component {
   state = {
@@ -53,30 +54,7 @@ class AddNewBeer extends Component {
       created_on
     };
 
-    const options = {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newBeer)
-    };
-
-    const postUrl = `http://apichallenge.canpango.com/categories/${category}/`;
-
-    fetch(postUrl, options)
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject({
-            status: res.status,
-            statusText: res.statusText
-          });
-        }
-      })
-      .then(res => console.log(res))
-      .catch(err => console.log("Error, with message:", err.statusText));
+    const url = `http://apichallenge.canpango.com/categories/${category}/`;
 
     // this.setState({
     //   name: "",

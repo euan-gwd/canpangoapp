@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 export default class NavMenu extends Component {
   state = { menuItems: [], activeItem: "" };
 
   handleFetch = () => {
-    fetch(`https://cors.io/?http://apichallenge.canpango.com/categories/`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ menuItems: data });
-      })
-      .catch(function(e) {
-        console.log(e);
-      });
+    axios.get(`http://apichallenge.canpango.com/categories/`).then(res => {
+      const menuItems = res.data;
+      this.setState({ menuItems });
+    });
   };
 
   componentDidMount = () => {
