@@ -33,6 +33,12 @@ export default class NavMenu extends Component {
           </Link>
         ))}
         <Menu.Menu position="right">
+          <Link to="/beers">
+            <Menu.Item link>
+              <Icon name="beer" />
+              Show All
+            </Menu.Item>
+          </Link>
           <Link to="/addNewBeer">
             <Menu.Item link>
               <Icon name="plus" />

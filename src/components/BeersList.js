@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Segment, List } from "semantic-ui-react";
 import axios from "axios";
 
-export default class BeersList extends Component {
+export default class BeerCategory extends Component {
   state = { beers: [] };
 
   handleFetch = () => {

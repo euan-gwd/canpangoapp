@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import NavMenu from "./NavMenu";
 import Home from "./Home";
-import BeersList from "./BeersList";
+import BeerCategory from "./BeersList";
+import Beers from "./Beers.js";
 import Beer from "./Beer.js";
 import AddNewBeer from "./AddNewBeer";
 import Search from "./Search";
@@ -24,8 +25,9 @@ class App extends Component {
             <Fragment>
               <NavMenu />
               <Route path="/addNewBeer" component={AddNewBeer} />
-              <Route path="/category/:id" component={BeersList} />
-              <Route path="/beers/:id" component={Beer} />
+              <Route path="/category/:id" component={BeerCategory} />
+              <Route exact path="/beers/" component={Beers} />
+              <Route exact path="/beers/:id" component={Beer} />
               <Route path="/search" component={Search} />
               <Route exact path="/" component={Home} />
             </Fragment>
