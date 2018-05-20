@@ -33,8 +33,9 @@ export default class CategoryMenu extends Component {
             <Icon name="plus" />
             Add New Beer
           </Menu.Item>
-          <Menu.Item>
-            <Input className="icon" icon="search" placeholder="Search..." />
+          <Menu.Item onClick={this.handleItemClick}>
+            <Icon name="search" />
+            Search
           </Menu.Item>
         </Menu.Menu>
       </Menu>
