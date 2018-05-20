@@ -59,25 +59,21 @@ class AddNewBeer extends Component {
     axios({
       method: "POST",
       url: `/beers/`,
-      headers: { "content-type": "text/json" },
+      headers: { "content-type": "application/json" },
       data: payload
-    })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    }).catch(error => {
+      console.error(error);
+    });
 
-    // this.setState({
-    //   name: "",
-    //   ibu: "",
-    //   calories: "",
-    //   abv: "",
-    //   style: "",
-    //   brewery_location: "",
-    //   category: ""
-    // });
+    this.setState({
+      name: "",
+      ibu: "",
+      calories: "",
+      abv: "",
+      style: "",
+      brewery_location: "",
+      category: ""
+    });
   };
 
   render() {
