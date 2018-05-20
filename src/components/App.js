@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import CategoryMenu from "./CategoryMenu";
+import NavMenu from "./NavMenu";
 import Home from "./Home";
 import BeersList from "./BeersList";
 import Beer from "./Beer.js";
@@ -22,7 +22,7 @@ class App extends Component {
         <Segment as="main" basic>
           <BrowserRouter>
             <Fragment>
-              <CategoryMenu />
+              <NavMenu />
               <Route path="/addNewBeer" component={AddNewBeer} />
               <Route path="/category/:id" component={BeersList} />
               <Route path="/beers/:id" component={Beer} />

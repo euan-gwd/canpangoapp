@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default class CategoryMenu extends Component {
+export default class NavMenu extends Component {
   state = { menuItems: [], activeItem: "" };
   componentDidMount = () => {
     fetch("/categories/")
