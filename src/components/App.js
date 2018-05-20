@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <Fragment>
         <Segment as="header" basic inverted>
-          <Image src={logo} alt="logo" centered inverted />
-          <Header as="h1" textAlign="center">
-            BreweryDB
+          <Image src={logo} alt="logo" centered size="medium" />
+          <Header as="h2" textAlign="center">
+            Brewery
           </Header>
         </Segment>
         <CategoryMenu />
