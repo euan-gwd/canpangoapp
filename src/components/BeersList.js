@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Beer from "./Beer.js";
+import BeerDetail from "./BeerDetail.js";
 
-export default class Beers extends Component {
+export default class BeersList extends Component {
   state = { beers: [] };
 
   componentDidMount = () => {
@@ -17,7 +17,9 @@ export default class Beers extends Component {
   render() {
     const { beers } = this.state;
     return (
-      <ul>{beers.map((beer, index) => <Beer key={index} detail={beer} />)}</ul>
+      <ul>
+        {beers.map((beer, index) => <BeerDetail key={index} detail={beer} />)}
+      </ul>
     );
   }
 }

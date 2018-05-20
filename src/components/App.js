@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import CategoryMenu from "./CategoryMenu";
 import Home from "./Home";
-// import Beers from "./Beers";
+import BeersList from "./BeersList";
 import AddNewBeer from "./AddNewBeer";
+import Search from "./Search";
 import logo from "./logo.png";
 import { Header, Image, Segment } from "semantic-ui-react";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -22,7 +23,8 @@ class App extends Component {
             <Fragment>
               <CategoryMenu />
               <Route path="/addNewBeer" component={AddNewBeer} />
-              <Route path="/category/id:" component={AddNewBeer} />
+              <Route path="/category/id:" component={BeersList} />
+              <Route path="/search" component={Search} />
               <Route exact path="/" component={Home} />
             </Fragment>
           </BrowserRouter>
