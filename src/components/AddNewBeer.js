@@ -21,6 +21,11 @@ class AddNewBeer extends Component {
     });
   };
 
+  handleSelectChange = event => {
+    // console.log(event.target.value);
+    this.setState({ category: event.target.value });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const beerDetails = { ...this.state };
@@ -40,6 +45,7 @@ class AddNewBeer extends Component {
       brewery_location,
       category
     } = this.state;
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group widths="equal">
@@ -90,15 +96,27 @@ class AddNewBeer extends Component {
             required
             onChange={this.handleInputChange}
           />
-          <Form.Input
-            placeholder="Category"
+
+          <Form.Field
             label="Category"
-            name="category"
-            value={category}
-            required
-            onChange={this.handleInputChange}
-          />
+            control="select"
+            value={this.state.category}
+            onChange={this.handleSelectChange}
+          >
+            <option>Choose one</option>
+            <option value="1">Pilsner</option>
+            <option value="2">Lager</option>
+            <option value="3">IPA</option>
+            <option value="4">Stout</option>
+            <option value="5">Wheat</option>
+            <option value="6">Ale</option>
+            <option value="7">Porter</option>
+            <option value="8">Light</option>
+            <option value="9">Cider</option>
+            <option value="10">Lambic</option>
+          </Form.Field>
         </Form.Group>
+
         <Form.Group widths="equal">
           <Form.Input
             placeholder="Brewery Location"
