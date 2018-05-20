@@ -3,7 +3,7 @@ import CategoryMenu from "./CategoryMenu";
 import Beers from "./Beers";
 import AddNewBeer from "./AddNewBeer";
 import logo from "./logo.png";
-import { Header, Image, Segment, Grid } from "semantic-ui-react";
+import { Header, Image, Segment } from "semantic-ui-react";
 
 class App extends Component {
   render() {
@@ -17,16 +17,8 @@ class App extends Component {
         </Segment>
         <CategoryMenu />
         <Segment as="main">
-          <Grid columns={2}>
-            <Grid.Row divided>
-              <Grid.Column>
-                <Beers />
-              </Grid.Column>
-              <Grid.Column>
-                <AddNewBeer />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+          <AddNewBeer />
+          <Beers />
         </Segment>
       </Fragment>
     );

@@ -10,6 +10,7 @@ const Beer = props => {
       <p>{props.detail.abv} </p>
       <p>{props.detail.style} </p>
       <p>{props.detail.category}</p>
+      <p>{props.detail.brewery_location}</p>
     </div>
   );
 };
