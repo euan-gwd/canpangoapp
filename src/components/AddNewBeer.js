@@ -58,7 +58,7 @@ class AddNewBeer extends Component {
               onChange={this.handleInputChange}
             />
             <Form.Input
-              placeholder="Ibu"
+              placeholder="ibu"
               name="ibu"
               label="IBU"
               value={ibu}
@@ -107,16 +107,16 @@ class AddNewBeer extends Component {
               <option value="" hidden>
                 Choose one
               </option>
-              <option value="1">Pilsner</option>
-              <option value="2">Lager</option>
-              <option value="3">IPA</option>
-              <option value="4">Stout</option>
-              <option value="5">Wheat</option>
-              <option value="6">Ale</option>
-              <option value="7">Porter</option>
-              <option value="8">Light</option>
-              <option value="9">Cider</option>
-              <option value="10">Lambic</option>
+              <option value="Pilsner">Pilsner</option>
+              <option value="Lager">Lager</option>
+              <option value="IPA">IPA</option>
+              <option value="Stout">Stout</option>
+              <option value="Wheat">Wheat</option>
+              <option value="Ale">Ale</option>
+              <option value="Porter">Porter</option>
+              <option value="Light">Light</option>
+              <option value="Cider">Cider</option>
+              <option value="Lambic">Lambic</option>
             </Form.Field>
           </Form.Group>
 

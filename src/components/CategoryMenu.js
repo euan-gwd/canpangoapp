@@ -21,9 +21,16 @@ export default class CategoryMenu extends Component {
     const { menuItems } = this.state;
     return (
       <Menu as="nav" borderless stackable>
+        <Link to="/">
+          <Menu.Item icon link>
+            <Icon name="home" />
+          </Menu.Item>
+        </Link>
         <Menu.Item header>Categories:</Menu.Item>
         {menuItems.map((menuItem, index) => (
-          <Menu.Item key={index} name={menuItem.name} />
+          <Link to={`/category/${menuItem.category}`} key={index}>
+            <Menu.Item name={menuItem.name} />
+          </Link>
         ))}
         <Menu.Menu position="right">
           <Link to="/addNewBeer">
