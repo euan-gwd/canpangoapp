@@ -3,7 +3,6 @@ import React from "react";
 const Beer = props => {
   return (
     <div>
-      <p>{props.detail.url} </p>
       <p>{props.detail.name}</p>
       <p>{props.detail.ibu} </p>
       <p>{props.detail.calories} </p>

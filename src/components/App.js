@@ -23,7 +23,7 @@ class App extends Component {
             <Fragment>
               <CategoryMenu />
               <Route path="/addNewBeer" component={AddNewBeer} />
-              <Route path="/category/id:" component={BeersList} />
+              <Route path="/category/:id" component={BeersList} />
               <Route path="/search" component={Search} />
               <Route exact path="/" component={Home} />
             </Fragment>
