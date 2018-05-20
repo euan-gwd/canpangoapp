@@ -22,7 +22,6 @@ class AddNewBeer extends Component {
   };
 
   handleSelectChange = event => {
-    // console.log(event.target.value);
     this.setState({ category: event.target.value });
   };
 
@@ -100,10 +99,13 @@ class AddNewBeer extends Component {
           <Form.Field
             label="Category"
             control="select"
-            value={this.state.category}
+            required
+            value={category}
             onChange={this.handleSelectChange}
           >
-            <option>Choose one</option>
+            <option value="" hidden>
+              Choose one
+            </option>
             <option value="1">Pilsner</option>
             <option value="2">Lager</option>
             <option value="3">IPA</option>
