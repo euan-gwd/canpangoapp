@@ -4,6 +4,7 @@ import Beers from "./Beers";
 import AddNewBeer from "./AddNewBeer";
 import logo from "./logo.png";
 import { Header, Image, Segment } from "semantic-ui-react";
+import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -15,10 +16,13 @@ class App extends Component {
             Brewery
           </Header>
         </Segment>
-        <CategoryMenu />
-        <Segment as="main">
-          <AddNewBeer />
-          <Beers />
+        <Segment as="main" basic>
+          <BrowserRouter>
+            <Fragment>
+              <CategoryMenu />
+              <Route path="/addNewBeer" component={AddNewBeer} />
+            </Fragment>
+          </BrowserRouter>
         </Segment>
       </Fragment>
     );
