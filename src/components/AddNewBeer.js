@@ -43,7 +43,8 @@ class AddNewBeer extends Component {
     const formattedCalories = Number(calories);
     const currentDate = new Date();
     const created_on = currentDate.toISOString();
-    const newBeer = {
+
+    const payload = {
       name,
       ibu: formattedIBU,
       calories: formattedCalories,
@@ -54,13 +55,13 @@ class AddNewBeer extends Component {
       created_on
     };
 
-    axios
-      .post(`http://apichallenge.canpango.com/categories/${category}/`, {
-        newBeer
-      })
+    axios({
+      method: "POST",
+      url: `http://apichallenge.canpango.com/beers/`,
+      data: payload
+    })
       .then(res => {
         console.log(res);
-        console.log(res.data);
       })
       .catch(error => {
         console.error(error);
@@ -150,16 +151,36 @@ class AddNewBeer extends Component {
               <option value="" hidden>
                 Choose one
               </option>
-              <option value="Pilsner">Pilsner</option>
-              <option value="Lager">Lager</option>
-              <option value="IPA">IPA</option>
-              <option value="Stout">Stout</option>
-              <option value="Wheat">Wheat</option>
-              <option value="Ale">Ale</option>
-              <option value="Porter">Porter</option>
-              <option value="Light">Light</option>
-              <option value="Cider">Cider</option>
-              <option value="Lambic">Lambic</option>
+              <option value="http://apichallenge.canpango.com/category/1/">
+                Pilsner
+              </option>
+              <option value="http://apichallenge.canpango.com/category/2/">
+                Lager
+              </option>
+              <option value="http://apichallenge.canpango.com/category/3/">
+                IPA
+              </option>
+              <option value="http://apichallenge.canpango.com/category/4/">
+                Stout
+              </option>
+              <option value="http://apichallenge.canpango.com/category/5/">
+                Wheat
+              </option>
+              <option value="http://apichallenge.canpango.com/category/6/">
+                Ale
+              </option>
+              <option value="http://apichallenge.canpango.com/category/7/">
+                Porter
+              </option>
+              <option value="http://apichallenge.canpango.com/category/8/">
+                Light
+              </option>
+              <option value="http://apichallenge.canpango.com/category/9/">
+                Cider
+              </option>
+              <option value="http://apichallenge.canpango.com/category/10/">
+                Lambic
+              </option>
             </Form.Field>
           </Form.Group>
 
