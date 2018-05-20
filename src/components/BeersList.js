@@ -10,7 +10,6 @@ export default class BeersList extends Component {
       .then(response => response.json())
       .then(data => {
         const { id: category } = this.props.match.params;
-        // const testId = "http://apichallenge.canpango.com/category/8/";
         const filteredData = data.filter(item => {
           if (item.category === category) {
             return item;
