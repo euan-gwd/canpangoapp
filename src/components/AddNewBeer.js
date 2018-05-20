@@ -28,9 +28,30 @@ class AddNewBeer extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const beerDetails = { ...this.state };
+    const {
+      name,
+      ibu,
+      calories,
+      abv,
+      style,
+      brewery_location,
+      category
+    } = beerDetails;
+
+    const formattedIBU = Number(ibu);
+    const formattedCalories = Number(calories);
     const currentDate = new Date();
     const created_on = currentDate.toISOString();
-    const newBeer = { beerDetails, created_on };
+    const newBeer = {
+      name,
+      ibu: formattedIBU,
+      calories: formattedCalories,
+      abv,
+      style,
+      brewery_location,
+      category,
+      created_on
+    };
     console.log(newBeer);
   };
 

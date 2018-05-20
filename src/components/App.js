@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import CategoryMenu from "./CategoryMenu";
 import Home from "./Home";
-import Beers from "./Beers";
+// import Beers from "./Beers";
 import AddNewBeer from "./AddNewBeer";
 import logo from "./logo.png";
 import { Header, Image, Segment } from "semantic-ui-react";

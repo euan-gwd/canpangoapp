@@ -15,8 +15,6 @@ export default class CategoryMenu extends Component {
       });
   };
 
-  handleItemClick = evt => console.log();
-
   render() {
     const { menuItems } = this.state;
     return (
