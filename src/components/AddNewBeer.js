@@ -54,7 +54,17 @@ class AddNewBeer extends Component {
       created_on
     };
 
-    const url = `http://apichallenge.canpango.com/categories/${category}/`;
+    axios
+      .post(`http://apichallenge.canpango.com/categories/${category}/`, {
+        newBeer
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
 
     // this.setState({
     //   name: "",

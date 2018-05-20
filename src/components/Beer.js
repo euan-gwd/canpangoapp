@@ -6,18 +6,23 @@ export default class Beer extends Component {
   state = { beers: [] };
 
   handleFetch = () => {
-    axios.get(`http://apichallenge.canpango.com/beers/`).then(res => {
-      const data = res.data;
-      const { id } = this.props.match.params;
-      const filteredData = data.filter(item => {
-        if (item.name === id) {
-          return item;
-        } else {
-          return null;
-        }
+    axios
+      .get(`http://apichallenge.canpango.com/beers/`)
+      .then(res => {
+        const data = res.data;
+        const { id } = this.props.match.params;
+        const filteredData = data.filter(item => {
+          if (item.name === id) {
+            return item;
+          } else {
+            return null;
+          }
+        });
+        this.setState({ beers: filteredData });
+      })
+      .catch(error => {
+        console.error(error);
       });
-      this.setState({ beers: filteredData });
-    });
   };
 
   componentDidMount = () => {

@@ -16,6 +16,9 @@ class Search extends Component {
       .then(res => {
         const beers = res.data;
         this.setState({ beers });
+      })
+      .catch(error => {
+        console.error(error);
       });
   };
 
