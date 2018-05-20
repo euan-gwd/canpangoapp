@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SearchResult = props => {
   return (
-    <Table celled color="orange">
+    <Table color="orange">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>
