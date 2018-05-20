@@ -55,9 +55,11 @@ class AddNewBeer extends Component {
       created_on
     };
 
+    // const querystring = require("querystring");
     axios({
       method: "POST",
-      url: `http://apichallenge.canpango.com/beers/`,
+      url: `/beers/`,
+      headers: { "content-type": "text/json" },
       data: payload
     })
       .then(res => {
