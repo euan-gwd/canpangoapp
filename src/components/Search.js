@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
-import { Segment, Form } from "semantic-ui-react";
+import { Segment, Form, Message } from "semantic-ui-react";
 import SearchResult from "./SearchResult";
 
 class Search extends Component {
   state = {
     searchTerm: "",
-    beers: []
+    beers: [],
+    formErr: false
   };
 
   handleFetchData = item => {
@@ -25,6 +26,7 @@ class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
     const { searchTerm } = this.state;
     if (searchTerm !== null || "undefined") {
       this.handleFetchData(searchTerm);
@@ -32,7 +34,7 @@ class Search extends Component {
   };
 
   render() {
-    const { searchTerm, beers } = this.state;
+    const { searchTerm, beers, formErr } = this.state;
 
     return (
       <Fragment>
@@ -45,6 +47,7 @@ class Search extends Component {
                 name="search"
                 value={searchTerm}
                 icon="search"
+                required
                 onChange={this.handleInputChange}
               />
             </Form.Group>
@@ -54,7 +57,13 @@ class Search extends Component {
             </Form.Group>
           </Form>
         </Segment>
-        <SearchResult beers={beers} />
+        {beers.length !== 0 ? <SearchResult beers={beers} /> : null}
+        {beers.length !== 0 && formErr === true ? (
+          <Message negative>
+            <Message.Header>We're sorry</Message.Header>
+            <p>No results found</p>
+          </Message>
+        ) : null}
       </Fragment>
     );
   }
