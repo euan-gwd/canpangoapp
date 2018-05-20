@@ -24,7 +24,8 @@ class AddNewBeer extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const beerDetails = { ...this.state };
-    const created_on = Date.now();
+    const currentDate = new Date();
+    const created_on = currentDate.toISOString();
     const newBeer = { beerDetails, created_on };
     console.log(newBeer);
   };
