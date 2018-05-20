@@ -8,7 +8,7 @@ import AddNewBeer from "./AddNewBeer";
 import Search from "./Search";
 import logo from "./logo.png";
 import { Header, Image, Segment } from "semantic-ui-react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -24,12 +24,14 @@ class App extends Component {
           <BrowserRouter>
             <Fragment>
               <NavMenu />
-              <Route path="/addNewBeer" component={AddNewBeer} />
-              <Route path="/category/:id" component={BeerCategory} />
-              <Route exact path="/beers/" component={Beers} />
-              <Route exact path="/beers/:id" component={Beer} />
-              <Route path="/search" component={Search} />
-              <Route exact path="/" component={Home} />
+              <Switch>
+                <Route path="/addNewBeer" component={AddNewBeer} />
+                <Route path="/category/:id" component={BeerCategory} />
+                <Route exact path="/beers/" component={Beers} />
+                <Route exact path="/beers/:id" component={Beer} />
+                <Route path="/search" component={Search} />
+                <Route exact path="/" component={Home} />
+              </Switch>
             </Fragment>
           </BrowserRouter>
         </Segment>
