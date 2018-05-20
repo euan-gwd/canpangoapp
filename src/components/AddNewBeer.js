@@ -53,6 +53,16 @@ class AddNewBeer extends Component {
       created_on
     };
     console.log(newBeer);
+
+    // this.setState({
+    //   name: "",
+    //   ibu: "",
+    //   calories: "",
+    //   abv: "",
+    //   style: "",
+    //   brewery_location: "",
+    //   category: ""
+    // });
   };
 
   render() {
