@@ -1,15 +1,30 @@
 import React, { Component } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 
 class AddNewBeer extends Component {
-  state = {};
+  state = {
+    name: "",
+    ibu: "",
+    calories: "",
+    abv: "",
+    style: "",
+    brewery_location: "",
+    category: ""
+  };
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+  handleInputChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  };
 
-  handleSubmit = evt => {
-    evt.preventDefault();
+  handleSubmit = e => {
+    e.preventDefault();
     const beerDetails = { ...this.state };
-    const created_on = Date.UTC();
+    const created_on = Date.now();
     const newBeer = { beerDetails, created_on };
     console.log(newBeer);
   };
@@ -29,48 +44,73 @@ class AddNewBeer extends Component {
         <Form.Group widths="equal">
           <Form.Input
             placeholder="Name"
+            label="Name"
             name="name"
             value={name}
-            onChange={this.handleChange}
+            required
+            onChange={this.handleInputChange}
           />
           <Form.Input
             placeholder="Ibu"
             name="ibu"
+            label="IBU"
             value={ibu}
-            onChange={this.handleChange}
+            type="number"
+            required
+            onChange={this.handleInputChange}
           />
+        </Form.Group>
+
+        <Form.Group widths="equal">
           <Form.Input
             placeholder="calories"
             name="calories"
+            label="Calories"
             value={calories}
-            onChange={this.handleChange}
+            type="number"
+            required
+            onChange={this.handleInputChange}
           />
           <Form.Input
             placeholder="abv"
             name="abv"
+            label="ABV"
             value={abv}
-            onChange={this.handleChange}
+            required
+            onChange={this.handleInputChange}
           />
+        </Form.Group>
+        <Form.Group widths="equal">
           <Form.Input
             placeholder="Style"
             name="style"
+            label="Style"
             value={style}
-            onChange={this.handleChange}
-          />
-          <Form.Input
-            placeholder="Brewery Location"
-            name="brewery_location"
-            value={brewery_location}
-            onChange={this.handleChange}
+            required
+            onChange={this.handleInputChange}
           />
           <Form.Input
             placeholder="Category"
+            label="Category"
             name="category"
             value={category}
-            onChange={this.handleChange}
+            required
+            onChange={this.handleInputChange}
           />
         </Form.Group>
-        <Form.Field control={Button}>Submit</Form.Field>
+        <Form.Group widths="equal">
+          <Form.Input
+            placeholder="Brewery Location"
+            label="Brewery Location"
+            name="brewery_location"
+            value={brewery_location}
+            required
+            onChange={this.handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Button content="Submit" />
+        </Form.Group>
       </Form>
     );
   }

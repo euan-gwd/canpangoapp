@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import CategoryMenu from "./CategoryMenu";
 // import Beers from "./Beers";
+import AddNewBeer from "./AddNewBeer";
 import logo from "./logo.png";
 import { Header, Image, Segment } from "semantic-ui-react";
 
@@ -15,7 +16,10 @@ class App extends Component {
           </Header>
         </Segment>
         <CategoryMenu />
-        <main>{/* <Beers /> */}</main>
+        <Segment as="main">
+          <AddNewBeer />
+          {/* <Beers /> */}
+        </Segment>
       </Fragment>
     );
   }
