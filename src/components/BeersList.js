@@ -11,9 +11,10 @@ export default class BeerCategory extends Component {
       .get(`/beers/`)
       .then(res => {
         const data = res.data;
-        const { id: category } = this.props.match.params;
+        const { id } = this.props.match.params;
+        const searchCategory = `http://apichallenge.canpango.com/category/${id}/`;
         const filteredData = data.filter(item => {
-          if (item.category === category) {
+          if (item.category === searchCategory) {
             return item;
           } else {
             return null;
