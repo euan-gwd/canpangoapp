@@ -7,7 +7,7 @@ export default class NavMenu extends Component {
   state = { menuItems: [], activeItem: "" };
 
   handleFetch = () => {
-    axios.get(`http://apichallenge.canpango.com/categories/`).then(res => {
+    axios.get(`/categories/`).then(res => {
       const menuItems = res.data;
       this.setState({ menuItems });
     });

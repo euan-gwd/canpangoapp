@@ -12,7 +12,7 @@ class Search extends Component {
 
   handleFetchData = item => {
     axios
-      .get(`http://apichallenge.canpango.com/beers/search/?q=${item}`)
+      .get(`/beers/search/?q=${item}`)
       .then(res => {
         const beers = res.data;
         this.setState({ beers });

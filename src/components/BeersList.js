@@ -8,7 +8,7 @@ export default class BeersList extends Component {
 
   handleFetch = () => {
     axios
-      .get(`http://apichallenge.canpango.com/beers/`)
+      .get(`/beers/`)
       .then(res => {
         const data = res.data;
         const { id: category } = this.props.match.params;
