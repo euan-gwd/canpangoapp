@@ -4,14 +4,14 @@ import { Table, Button } from "semantic-ui-react";
 export default class Beer extends Component {
   state = { beers: [] };
 
-  componentDidMount = () => {
+  handleFetch = () => {
     fetch("/beers/")
       .then(response => response.json())
       .then(data => {
         const { id } = this.props.match.params;
-        const testId = "http://apichallenge.canpango.com/category/8/";
+        // const testId = "http://apichallenge.canpango.com/category/8/";
         const filteredData = data.filter(item => {
-          if (item.category === testId) {
+          if (item.name === id) {
             return item;
           } else {
             return null;
@@ -22,6 +22,18 @@ export default class Beer extends Component {
       .catch(function(e) {
         console.log(e);
       });
+  };
+
+  componentDidMount = () => {
+    this.handleFetch();
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const { id: currentId } = this.props.match.params;
+    const { id: previousId } = prevProps.match.params;
+    if (currentId !== previousId) {
+      this.handleFetch();
+    }
   };
 
   render() {

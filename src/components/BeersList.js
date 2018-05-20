@@ -5,25 +5,36 @@ import { Segment, List } from "semantic-ui-react";
 export default class BeersList extends Component {
   state = { beers: [] };
 
-  componentDidMount = () => {
+  handleFetch = () => {
     fetch("/beers/")
       .then(response => response.json())
       .then(data => {
-        const { id } = this.props.match.params;
-        const testId = "http://apichallenge.canpango.com/category/8/";
+        const { id: category } = this.props.match.params;
+        // const testId = "http://apichallenge.canpango.com/category/8/";
         const filteredData = data.filter(item => {
-          if (item.category === testId) {
+          if (item.category === category) {
             return item;
           } else {
             return null;
           }
         });
-
         this.setState({ beers: filteredData });
       })
       .catch(function(e) {
         console.log(e);
       });
+  };
+
+  componentDidMount = () => {
+    this.handleFetch();
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const { id: currentId } = this.props.match.params;
+    const { id: previousId } = prevProps.match.params;
+    if (currentId !== previousId) {
+      this.handleFetch();
+    }
   };
 
   render() {
@@ -32,8 +43,8 @@ export default class BeersList extends Component {
       <Segment>
         <List divided relaxed>
           {beers.map((beer, index) => (
-            <Link to={`/beers/${beer.name}`}>
-              <List.Item key={index}>
+            <Link to={`/beers/${beer.name}`} key={index}>
+              <List.Item>
                 <List.Content>{beer.name}</List.Content>
               </List.Item>
             </Link>
