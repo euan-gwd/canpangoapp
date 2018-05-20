@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Segment, List } from "semantic-ui-react";
+import React, { Component, Fragment } from "react";
+import SearchResult from "./SearchResult";
 import axios from "axios";
 
 export default class BeerCategory extends Component {
@@ -42,17 +41,9 @@ export default class BeerCategory extends Component {
   render() {
     const { beers } = this.state;
     return (
-      <Segment>
-        <List divided relaxed>
-          {beers.map((beer, index) => (
-            <Link to={`/beers/${beer.name}`} key={index}>
-              <List.Item>
-                <List.Content>{beer.name}</List.Content>
-              </List.Item>
-            </Link>
-          ))}
-        </List>
-      </Segment>
+      <Fragment>
+        <SearchResult beers={beers} />
+      </Fragment>
     );
   }
 }
