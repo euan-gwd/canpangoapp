@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Segment, Table, Button, Icon } from "semantic-ui-react";
+import { Table, Button } from "semantic-ui-react";
 
 export default class BeersList extends Component {
   state = { beers: [] };
@@ -8,7 +8,7 @@ export default class BeersList extends Component {
     fetch("/beers/")
       .then(response => response.json())
       .then(data => {
-        // const { id } = this.props.match.params;
+        const { id } = this.props.match.params;
         const testId = "http://apichallenge.canpango.com/category/8/";
         const filteredData = data.filter(item => {
           if (item.category === testId) {
