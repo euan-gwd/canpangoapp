@@ -26,10 +26,10 @@ class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     const { searchTerm } = this.state;
     if (searchTerm !== null || "undefined") {
       this.handleFetchData(searchTerm);
+      this.setState({ searchTerm: "" });
     }
   };
 

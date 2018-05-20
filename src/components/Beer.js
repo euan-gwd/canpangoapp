@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, Button } from "semantic-ui-react";
 
-export default class BeersList extends Component {
+export default class Beer extends Component {
   state = { beers: [] };
 
   componentDidMount = () => {
@@ -56,8 +56,7 @@ export default class BeersList extends Component {
 
         <Table.Footer fullWidth>
           <Table.Row>
-            <Table.HeaderCell />
-            <Table.HeaderCell colSpan="6">
+            <Table.HeaderCell colSpan="7">
               <Button size="small">Edit</Button>
               <Button size="small" floated="right">
                 Delete

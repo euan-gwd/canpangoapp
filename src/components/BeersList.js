@@ -32,7 +32,7 @@ export default class BeersList extends Component {
       <Segment>
         <List divided relaxed>
           {beers.map((beer, index) => (
-            <Link to={`/Beers/${index + 1}`}>
+            <Link to={`/beers/${beer.name}`}>
               <List.Item key={index}>
                 <List.Content>{beer.name}</List.Content>
               </List.Item>

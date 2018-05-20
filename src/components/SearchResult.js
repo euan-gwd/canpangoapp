@@ -1,5 +1,6 @@
 import React from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const SearchResult = props => {
   return (
@@ -13,6 +14,7 @@ const SearchResult = props => {
           <Table.HeaderCell>Style</Table.HeaderCell>
           <Table.HeaderCell>Brewery Location</Table.HeaderCell>
           <Table.HeaderCell>Category</Table.HeaderCell>
+          <Table.HeaderCell />
         </Table.Row>
       </Table.Header>
 
@@ -26,14 +28,18 @@ const SearchResult = props => {
             <Table.Cell>{beer.style}</Table.Cell>
             <Table.Cell>{beer.brewery_location}</Table.Cell>
             <Table.Cell>{beer.category}</Table.Cell>
+            <Table.Cell>
+              <Link to={`/beers/${beer.name}`}>
+                <Button size="small">View</Button>
+              </Link>
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
 
       <Table.Footer fullWidth>
         <Table.Row>
-          <Table.HeaderCell />
-          <Table.HeaderCell colSpan="6" />
+          <Table.HeaderCell colSpan="8" />
         </Table.Row>
       </Table.Footer>
     </Table>
