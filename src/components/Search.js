@@ -10,7 +10,9 @@ class Search extends Component {
   };
 
   handleFetchData = item => {
-    fetch(`/beers/search/?q=${item}`)
+    fetch(
+      `https://cors.io/?http://apichallenge.canpango.com/beers/search/?q=${item}`
+    )
       .then(response => response.json())
       .then(data => {
         this.setState({ beers: data });

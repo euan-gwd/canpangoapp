@@ -5,7 +5,7 @@ export default class Beer extends Component {
   state = { beers: [] };
 
   handleFetch = () => {
-    fetch("/beers/")
+    fetch(`https://cors.io/?http://apichallenge.canpango.com/beers/`)
       .then(response => response.json())
       .then(data => {
         const { id } = this.props.match.params;

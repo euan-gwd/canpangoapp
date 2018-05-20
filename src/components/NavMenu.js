@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-
 export default class NavMenu extends Component {
   state = { menuItems: [], activeItem: "" };
-  componentDidMount = () => {
-    fetch("/categories/")
+
+  handleFetch = () => {
+    fetch(`https://cors.io/?http://apichallenge.canpango.com/categories/`)
       .then(response => response.json())
       .then(data => {
         this.setState({ menuItems: data });
@@ -13,6 +13,10 @@ export default class NavMenu extends Component {
       .catch(function(e) {
         console.log(e);
       });
+  };
+
+  componentDidMount = () => {
+    this.handleFetch();
   };
 
   render() {
